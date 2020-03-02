@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{e0e85820-1b96-401c-9201-6e637bc46e14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{dfaf5600-6ee2-4bf9-9b7b-8b731d34fef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filter">
+      <UniqueIdentifier>{4d91e4a0-c37e-4f95-b762-69468ef2fd43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Doc">
+      <UniqueIdentifier>{313ee6db-a97c-45fc-b707-4e3fb8c38a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AutoControlMover">
+      <UniqueIdentifier>{b9c0fb7e-1879-42e5-b939-4205f82db036}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PointEditorDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="xyViewer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftView.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="xyViewerView.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="PointUtil.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPath.cpp">
+      <Filter>Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="xyViewerDoc.cpp">
+      <Filter>Doc</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoControlMover\AutoControlMover.cpp">
+      <Filter>AutoControlMover</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainFrm.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PointEditorDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="xyViewer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="xyViewerView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="PointUtil.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPath.h">
+      <Filter>Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="xyViewerDoc.h">
+      <Filter>Doc</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoControlMover\AutoControlMover.h">
+      <Filter>AutoControlMover</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="UserImages.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\xyViewer.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\xyViewerDoc.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xyViewer.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\xyViewer.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
