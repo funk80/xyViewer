@@ -60,7 +60,7 @@
     <ClCompile Include="xyViewerDoc.cpp">
       <Filter>Doc</Filter>
     </ClCompile>
-    <ClCompile Include="AutoControlMover\AutoControlMover.cpp">
+    <ClCompile Include="..\..\_jtkimLibrary_\AutoControlMover\AutoControlMover.cpp">
       <Filter>AutoControlMover</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +101,7 @@
     <ClInclude Include="xyViewerDoc.h">
       <Filter>Doc</Filter>
     </ClInclude>
-    <ClInclude Include="AutoControlMover\AutoControlMover.h">
+    <ClInclude Include="..\..\_jtkimLibrary_\AutoControlMover\AutoControlMover.h">
       <Filter>AutoControlMover</Filter>
     </ClInclude>
   </ItemGroup>

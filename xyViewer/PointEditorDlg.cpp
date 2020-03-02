@@ -27,8 +27,9 @@ void CPointEditorDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CPointEditorDlg, CDialog)
-    ON_WM_SIZING()
-    ON_EN_CHANGE(IDC_EDIT1, &CPointEditorDlg::OnEnChangeEdit1)
+	ON_WM_SIZING()
+	ON_WM_SIZE()
+	ON_EN_CHANGE(IDC_EDIT1, &CPointEditorDlg::OnEnChangeEdit1)
 END_MESSAGE_MAP()
 
 
@@ -55,14 +56,24 @@ void CPointEditorDlg::OnSizing(UINT fwSide, LPRECT pRect)
     //if (pRect->bottom - pRect->top < 400) {
     //    pRect->bottom = pRect->top + 400;
     //}
-
-    ControlMovingStyle cmsList[] = {
-        { IDC_EDIT1,		MT_Strech,	MT_Strech },
-    };
-
-    CAutoControlMover::AutoMove(this, *pRect, cmsList, sizeof(cmsList) / sizeof(ControlMovingStyle));
+	CAutoControlMover::MaxResizing(pRect, 500, 400);
 }
 
+void CPointEditorDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CDialog::OnSize(nType, cx, cy);
+
+	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+
+	RECT preWindowRect = m_ChangeWindowRect;
+	GetWindowRect(&m_ChangeWindowRect);
+
+	ControlMovingStyle cmsList[] = {
+		{ IDC_EDIT1,		MT_Strech,	MT_Strech },
+	};
+
+	CAutoControlMover::AutoMove(this, preWindowRect, m_ChangeWindowRect, cmsList, sizeof(cmsList) / sizeof(ControlMovingStyle));
+}
 
 void CPointEditorDlg::OnEnChangeEdit1()
 {
@@ -96,6 +107,8 @@ BOOL CPointEditorDlg::OnInitDialog()
     // TODO:  여기에 추가 초기화 작업을 추가합니다.
     CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT1);
     edit->SetLimitText(0xFFFFFFFF);
+
+	GetWindowRect(&m_ChangeWindowRect);
 
     return TRUE;  // return TRUE unless you set the focus to a control
     // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
