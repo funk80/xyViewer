@@ -63,6 +63,16 @@ void CLeftView::OnDraw(CDC* pDC)
 	pDoc->m_ptOriginList.GetPoints(points);
 	pDoc->m_ptOriginList.GetTypes(types);
 
+	CFont font;
+	LOGFONT lf;
+	::memset(&lf, 0, sizeof(LOGFONT));
+	lf.lfHeight = m_pointInfoSize.cy;
+	wcscpy(lf.lfFaceName, L"돋음체");
+	font.CreateFontIndirect(&lf);
+
+	
+	CFont* oldFont = (CFont*)pDC->SelectObject(&font);
+
 	for(unsigned int index = 0; index < points.size(); ++index)
 	{
 		BYTE pathType = types[index] & 0x07; // 0x07은 GDI+ PathPointTypePathTypeMask를 의미함
@@ -80,6 +90,7 @@ void CLeftView::OnDraw(CDC* pDC)
 					WCHAR tmpStr[_MAX_PATH];
 					swprintf(tmpStr, L"#[%d]#", j);
 					wcscat(str, tmpStr);
+					break;
 				}
 
 			}
@@ -99,6 +110,8 @@ void CLeftView::OnDraw(CDC* pDC)
 			pDC->LineTo(m_pointInfoOffset.x + 300,	m_pointInfoOffset.y + (index + 1)*m_pointInfoSize.cy - 2);
 		}
 	}
+
+	pDC->SelectObject(oldFont);
 }
 
 
@@ -171,7 +184,7 @@ void CLeftView::OnMouseMove(UINT nFlags, CPoint point)
 
 	// Data 선택
 	if(point.x >= m_pointInfoOffset.x && point.x <= m_pointInfoOffset.x + m_pointInfoSize.cx) {
-		int index = (int)((double)(point.y - m_pointInfoOffset.y) / 20);
+		int index = (int)((double)(point.y - m_pointInfoOffset.y) / m_pointInfoSize.cy);
 		if(index >= 0 && index < (int)pDoc->m_ptOriginList.GetCount()) {
 			pDoc->m_nCurrentIndexList.push_back(index);
 		}
@@ -194,7 +207,7 @@ void CLeftView::OnInitialUpdate()
 	m_pointInfoOffset.x = 0;
 	m_pointInfoOffset.y = 0;
 	m_pointInfoSize.cx = 300;
-	m_pointInfoSize.cy = 20;
+	m_pointInfoSize.cy = 15;
 }
 
 BOOL CLeftView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
@@ -220,16 +233,16 @@ void CLeftView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     switch (nChar)
     {
     case VK_UP:
-        m_pointInfoOffset.y += 20;
+        m_pointInfoOffset.y += m_pointInfoSize.cy;
         break;
     case VK_DOWN:
-        m_pointInfoOffset.y -= 20;
+        m_pointInfoOffset.y -= m_pointInfoSize.cy;
         break;
     case VK_PRIOR:
-        m_pointInfoOffset.y += (20 * 40);
+        m_pointInfoOffset.y += (m_pointInfoSize.cy * 40);
         break;
     case VK_NEXT:
-        m_pointInfoOffset.y -= (20 * 40);
+        m_pointInfoOffset.y -= (m_pointInfoSize.cy * 40);
         break;
     case VK_HOME:
         m_pointInfoOffset.y = 0;
